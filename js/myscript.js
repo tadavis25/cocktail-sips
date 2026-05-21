@@ -41,9 +41,9 @@ searchForm.addEventListener('submit', function(event) {
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
-                          <p>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</p>
-                           <p>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</p>
-                             <p>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</p>
+                          <p><strong>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</strong></p>
+                           <p><strong>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</strong></p>
+                             <p><strong>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</strong></p>
                            </div>
                         </div>
                     </div>
@@ -88,9 +88,9 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m')
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
-                          <p>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</p>
-                           <p>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</p>
-                             <p>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</p>
+                          <p><strong>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</strong></p>
+                           <p><strong>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</strong></p>
+                             <p><strong>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</strong></p>
                            </div>
                         </div>
                     </div>
@@ -135,9 +135,9 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
-                          <p>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</p>
-                           <p>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</p>
-                             <p>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</p>
+                          <p><strong>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</strong></p>
+                           <p><strong>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</strong></p>
+                             <p><strong>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</strong></p>
                            </div>
                         </div>
                     </div>
