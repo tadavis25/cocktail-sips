@@ -73,7 +73,10 @@ h1, h2, h3, h5 {
 }
 
 body {
-  background-color: #f0eabd;
+  background: linear-gradient(rgba(255,255,240,0.85), rgba(255,255,240,0.85)),
+   url("../images/tropical-palm-trees.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 /* Responsive */
