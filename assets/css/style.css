@@ -79,6 +79,13 @@ body {
   background-position: center;
 }
 
+.not-found {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+  color: #2f2f2f;
+}
+
 /* Responsive */
 
 @media (max-width: 768px) {
