@@ -7,23 +7,48 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">Cocktail Sips</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#search">Search</a></li>
-                <li><a href="index.html#popular-drinks">Popular Drinks</a></li>
-                <li><a href="index.html#random-drink">Random Drink</a></li>
-            </ul>
+    <div class="header-content">
+          <img src="assets/images/icons8-cocktail-64.png" alt="Cocktail Glass" class="logo">
+          <div class="header-text" >
+            <h1>Cocktail Sips</h1>
+            <p>Delightful Cocktail Recipes for Every Occasion</p>
+          </div>
         </div>
-    </nav>
 
-    <div class="not-found">
-        <img src="assets/images/icons8-cocktail-64.png" alt="Cocktail Glass" class="logo">
-        <h1>404</h1>
-        <p>Oops! This cocktail has gone missing.</p>
-        <a href="index.html" class="btn btn-primary">Go Back Home</a>
+     <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html"></a>
+    <img src="assets\images\icons8-cocktail-64.png" alt="Cocktail Icon" class="navbar-logo" width="40" height="40">
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#search">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#popular-drinks">Popular Drinks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#random-drink">Random Drink</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+    </header>
+
+
+    <main class="not-found">
+        <h1>404</h1>
+        <i class="fa-solid fa-martini-glass-citrus not-found-icon"></i>
+        <h2>Oops! This cocktail has gone missing.</h2>
+        <p>It seems you have wandered off the menu.</p>
+        <a href="index.html" class="btn btn-primary">Go Back Home</a>
+    </main>
   </body>
 </html>
