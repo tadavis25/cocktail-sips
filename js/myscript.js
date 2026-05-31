@@ -36,7 +36,7 @@ searchForm.addEventListener('submit', function(event) {
                 class="card-img-top">
                      
                     <div class="card-body">
-                      <h5><strong>${drink.strDrink}</strong></h5>
+                      <h3><strong>${drink.strDrink}</strong></h3>
                         <p>${drink.strInstructions.slice(0, 200)}...</p>
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
@@ -83,7 +83,7 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m')
                 class="card-img-top">
                      
                     <div class="card-body">
-                      <h5><strong>${drink.strDrink}</strong></h5>
+                      <h3><strong>${drink.strDrink}</strong></h3>
                         <p>${drink.strInstructions.slice(0, 200)}...</p>
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
@@ -130,7 +130,7 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
                 class="card-img-top">
                      
                     <div class="card-body">
-                      <h5><strong>${drink.strDrink}</strong></h5>
+                      <h3><strong>${drink.strDrink}</strong></h3>
                         <p>${drink.strInstructions.slice(0, 200)}...</p>
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
