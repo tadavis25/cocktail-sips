@@ -1,3 +1,5 @@
+/* jshint esversion: 11 */
+
 const searchForm = 
 document.getElementById('search-form');
 const searchInput = 
@@ -8,7 +10,7 @@ const errorMessage =
 document.getElementById('error-message');
 
 searchForm.addEventListener('submit', function(event) {
-    event.preventDefault()
+    event.preventDefault();
    const searchValue = searchInput.value.trim();
    searchInput.value = "";
    randomDrinkResult.innerHTML = "";
