@@ -136,6 +136,12 @@ body {
   border-top-right-radius: 12px;
 }
 
+.card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
 #search-form {
   margin-bottom: 2rem;
 }
