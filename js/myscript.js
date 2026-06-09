@@ -70,6 +70,7 @@ searchForm.addEventListener('submit', function(event) {
 const popularBtn = document.getElementById('popular-btn');
 const popularDrinksResults = document.getElementById('popular-drinks-results');
 
+// Generate popular cocktails //
 popularBtn.addEventListener('click', function() {
     popularDrinksResults.innerHTML = "";
     drinkResults.innerHTML = "";
@@ -116,6 +117,7 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m')
 const randomBtn = document.getElementById('random-btn');
 const randomDrinkResult = document.getElementById('random-drink-result');
 
+// Generate random cocktail //
 randomBtn.addEventListener('click', function() {
     randomDrinkResult.innerHTML = "";
     drinkResults.innerHTML = "";
