@@ -1,43 +1,41 @@
 /* jshint esversion: 11 */
 
-const searchForm = 
-document.getElementById('search-form');
-const searchInput = 
-document.getElementById('search-input');
-const drinkResults = 
-document.getElementById('drink-results');
-const errorMessage = 
-document.getElementById('error-message');
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
+const drinkResults = document.getElementById("drink-results");
+const errorMessage = document.getElementById("error-message");
 
 // Search cocktails by name //
-searchForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-   const searchValue = searchInput.value.trim();
-   searchInput.value = "";
-   randomDrinkResult.innerHTML = "";
-   drinkResults.innerHTML = "";
-   popularDrinksResults.innerHTML = "";
-   errorMessage.textContent = "";
+searchForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const searchValue = searchInput.value.trim();
+  searchInput.value = "";
+  randomDrinkResult.innerHTML = "";
+  drinkResults.innerHTML = "";
+  popularDrinksResults.innerHTML = "";
+  errorMessage.textContent = "";
 
-   if (!searchValue) {
-        errorMessage.textContent = 'Please enter a cocktail name.';
-        drinkResults.innerHTML = '';
+  if (!searchValue) {
+    errorMessage.textContent = "Please enter a cocktail name.";
+    drinkResults.innerHTML = "";
+    return;
+  }
+
+  fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`,
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      if (!data.drinks) {
+        errorMessage.textContent =
+          "No cocktails found. Please try another search.";
+        drinkResults.innerHTML = "";
         return;
-    }
-    
-     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
-        .then(response => response.json())
-        .then(data => {
+      }
 
-                if (!data.drinks) {
-                    errorMessage.textContent = 'No cocktails found. Please try another search.';
-                    drinkResults.innerHTML = '';
-                    return;
-                }
-        
-             drinkResults.innerHTML = '';
-            data.drinks.forEach(drink => {
-                drinkResults.innerHTML += `
+      drinkResults.innerHTML = "";
+      data.drinks.forEach((drink) => {
+        drinkResults.innerHTML += `
                        <div class="col-md-4 mb-4">
                      <div class="card h-100">
                   <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" 
@@ -49,42 +47,39 @@ searchForm.addEventListener('submit', function(event) {
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
-                          <p><strong>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</strong></p>
-                           <p><strong>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</strong></p>
-                             <p><strong>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</strong></p>
+                          <p><strong>${drink.strMeasure1 || ""} ${drink.strIngredient1 || ""}</strong></p>
+                           <p><strong>${drink.strMeasure2 || ""} ${drink.strIngredient2 || ""}</strong></p>
+                             <p><strong>${drink.strMeasure3 || ""} ${drink.strIngredient3 || ""}</strong></p>
                            </div>
                         </div>
                     </div>
                 `;
-            });
-            drinkResults.scrollIntoView({behavior: "smooth"});
-        })
-        .catch(error => {
-            console.error('Error fetching drink data:', error);
-            errorMessage.textContent = 'Error fetching drink data.';
-        });
-
-
+      });
+      drinkResults.scrollIntoView({ behavior: "smooth" });
+    })
+    .catch((error) => {
+      console.error("Error fetching drink data:", error);
+      errorMessage.textContent = "Error fetching drink data.";
+    });
 });
 
-const popularBtn = document.getElementById('popular-btn');
-const popularDrinksResults = document.getElementById('popular-drinks-results');
+const popularBtn = document.getElementById("popular-btn");
+const popularDrinksResults = document.getElementById("popular-drinks-results");
 
 // Generate popular cocktails //
-popularBtn.addEventListener('click', function() {
-    popularDrinksResults.innerHTML = "";
-    drinkResults.innerHTML = "";
-    randomDrinkResult.innerHTML = "";
-    errorMessage.textContent = "";
-    searchInput.value = "";
+popularBtn.addEventListener("click", function () {
+  popularDrinksResults.innerHTML = "";
+  drinkResults.innerHTML = "";
+  randomDrinkResult.innerHTML = "";
+  errorMessage.textContent = "";
+  searchInput.value = "";
 
-fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m')
-    .then(response => response.json())
-    .then(data => {
-                
-                popularDrinksResults.innerHTML = '';
-                data.drinks.forEach(drink => {
-                    popularDrinksResults.innerHTML += `
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m")
+    .then((response) => response.json())
+    .then((data) => {
+      popularDrinksResults.innerHTML = "";
+      data.drinks.forEach((drink) => {
+        popularDrinksResults.innerHTML += `
                        <div class="col-12 col-md-6 col-lg-4 mb-4"> 
                      <div class="card h-100">
                   <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" 
@@ -96,42 +91,40 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m')
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
-                          <p><strong>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</strong></p>
-                           <p><strong>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</strong></p>
-                             <p><strong>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</strong></p>
+                          <p><strong>${drink.strMeasure1 || ""} ${drink.strIngredient1 || ""}</strong></p>
+                           <p><strong>${drink.strMeasure2 || ""} ${drink.strIngredient2 || ""}</strong></p>
+                             <p><strong>${drink.strMeasure3 || ""} ${drink.strIngredient3 || ""}</strong></p>
                            </div>
                         </div>
                     </div>
                 `;
-            });
-            popularDrinksResults.scrollIntoView({behavior: "smooth"});
-        })
+      });
+      popularDrinksResults.scrollIntoView({ behavior: "smooth" });
+    })
 
-
-    .catch(error => {
-            console.error('Error fetching drink data:', error);
-            errorMessage.textContent = 'Error fetching drink data.';
-        });
+    .catch((error) => {
+      console.error("Error fetching drink data:", error);
+      errorMessage.textContent = "Error fetching drink data.";
+    });
 });
 
-const randomBtn = document.getElementById('random-btn');
-const randomDrinkResult = document.getElementById('random-drink-result');
+const randomBtn = document.getElementById("random-btn");
+const randomDrinkResult = document.getElementById("random-drink-result");
 
 // Generate random cocktail //
-randomBtn.addEventListener('click', function() {
-    randomDrinkResult.innerHTML = "";
-    drinkResults.innerHTML = "";
-    popularDrinksResults.innerHTML = "";
-    errorMessage.textContent = "";
-    searchInput.value = "";
+randomBtn.addEventListener("click", function () {
+  randomDrinkResult.innerHTML = "";
+  drinkResults.innerHTML = "";
+  popularDrinksResults.innerHTML = "";
+  errorMessage.textContent = "";
+  searchInput.value = "";
 
-fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-    .then(response => response.json())
-    .then(data => {
-                
-                randomDrinkResult.innerHTML = '';
-                data.drinks.forEach(drink => {
-                    randomDrinkResult.innerHTML += `
+  fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    .then((response) => response.json())
+    .then((data) => {
+      randomDrinkResult.innerHTML = "";
+      data.drinks.forEach((drink) => {
+        randomDrinkResult.innerHTML += `
                        <div class="col-12 col-md-6 col-lg-4 mb-4"> 
                      <div class="card h-100">
                   <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" 
@@ -143,20 +136,19 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
-                          <p><strong>${drink.strMeasure1 || ''} ${drink.strIngredient1 || ''}</strong></p>
-                           <p><strong>${drink.strMeasure2 || ''} ${drink.strIngredient2 || ''}</strong></p>
-                             <p><strong>${drink.strMeasure3 || ''} ${drink.strIngredient3 || ''}</strong></p>
+                          <p><strong>${drink.strMeasure1 || ""} ${drink.strIngredient1 || ""}</strong></p>
+                           <p><strong>${drink.strMeasure2 || ""} ${drink.strIngredient2 || ""}</strong></p>
+                             <p><strong>${drink.strMeasure3 || ""} ${drink.strIngredient3 || ""}</strong></p>
                            </div>
                         </div>
                     </div>
                 `;
-            });
-            randomDrinkResult.scrollIntoView({behavior: "smooth"});
-        })
+      });
+      randomDrinkResult.scrollIntoView({ behavior: "smooth" });
+    })
 
-
-    .catch(error => {
-            console.error('Error fetching drink data:', error);
-            errorMessage.textContent = 'Error fetching drink data.';
-        });
+    .catch((error) => {
+      console.error("Error fetching drink data:", error);
+      errorMessage.textContent = "Error fetching drink data.";
+    });
 });

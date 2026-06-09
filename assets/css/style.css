@@ -1,8 +1,11 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap");
 
 /* Fonts */
-h1, h2, h3, h5 {
+h1,
+h2,
+h3,
+h5 {
   font-family: "Prata", serif;
 }
 
@@ -10,9 +13,9 @@ h1, h2, h3, h5 {
   font-family: "Poppins", sans-serif;
 }
 .navbar {
-    background-color: #c7db63 !important;
-    padding: 10px;
-    font-size: 20px;
+  background-color: #c7db63 !important;
+  padding: 10px;
+  font-size: 20px;
 }
 
 /* Hero */
@@ -38,7 +41,7 @@ h1, h2, h3, h5 {
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   gap: 15px;
   padding: 20px;
 }
@@ -59,7 +62,8 @@ h1, h2, h3, h5 {
   max-width: 400px;
 }
 
-.header-content h1, .header-content p {
+.header-content h1,
+.header-content p {
   margin: 0;
 }
 
@@ -68,13 +72,15 @@ h1, h2, h3, h5 {
   flex-direction: column;
 }
 
-.header-text h1, .header-text p {
+.header-text h1,
+.header-text p {
   margin: 0;
 }
 
 body {
-  background: linear-gradient(rgba(255,255,240,0.85), rgba(255,255,240,0.85)),
-   url("../images/tropical-palm-trees.jpg") no-repeat center center fixed;
+  background:
+    linear-gradient(rgba(255, 255, 240, 0.85), rgba(255, 255, 240, 0.85)),
+    url("../images/tropical-palm-trees.jpg") no-repeat center center fixed;
   background-size: cover;
   background-position: center;
 }
@@ -172,16 +178,16 @@ body {
 }
 
 .feature-icon {
-    font-size: 30px;
-    margin-bottom: 15px;
-    text-align: center;
+  font-size: 30px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
   gap: 20px;
-color: #2f2f2f;
+  color: #2f2f2f;
 }
 .social-links a {
   color: #2f2f2f;
@@ -189,34 +195,28 @@ color: #2f2f2f;
   transition: color 0.3s ease;
 }
 
-.social-links a:hover {  
-color: #c7db63;
+.social-links a:hover {
+  color: #c7db63;
 }
 
 /* Media Queries */
 
 /* Media query: large or landscape phones (576px and up) */
 @media screen and (min-width: 576px) {
-  
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
 }
 
-
 /* large devices (laptops and desktops, 992px and up) */
-  @media screen and (min-width: 992px) {
-
-} 
+@media screen and (min-width: 992px) {
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
-
 }
 
 /* Extra extra large devices (large desktops, 1400px and up) */
 @media screen and (min-width: 1400px) {
-
 }
-
