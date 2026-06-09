@@ -9,6 +9,7 @@ document.getElementById('drink-results');
 const errorMessage = 
 document.getElementById('error-message');
 
+// Search cocktails by name //
 searchForm.addEventListener('submit', function(event) {
     event.preventDefault();
    const searchValue = searchInput.value.trim();
@@ -27,9 +28,8 @@ searchForm.addEventListener('submit', function(event) {
      fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-
-            drinkResults.innerHTML = '';
+        
+             drinkResults.innerHTML = '';
             data.drinks.forEach(drink => {
                 drinkResults.innerHTML += `
                        <div class="col-md-4 mb-4">
@@ -74,7 +74,6 @@ popularBtn.addEventListener('click', function() {
 fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
                 
                 popularDrinksResults.innerHTML = '';
                 data.drinks.forEach(drink => {
@@ -121,7 +120,6 @@ randomBtn.addEventListener('click', function() {
 fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
                 
                 randomDrinkResult.innerHTML = '';
                 data.drinks.forEach(drink => {
