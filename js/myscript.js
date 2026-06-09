@@ -28,6 +28,12 @@ searchForm.addEventListener('submit', function(event) {
      fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
         .then(response => response.json())
         .then(data => {
+
+                if (!data.drinks) {
+                    errorMessage.textContent = 'No cocktails found. Please try another search.';
+                    drinkResults.innerHTML = '';
+                    return;
+                }
         
              drinkResults.innerHTML = '';
             data.drinks.forEach(drink => {
