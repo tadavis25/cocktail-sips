@@ -152,6 +152,10 @@ body {
   margin-bottom: 2rem;
 }
 
+.feature-icon {
+  margin-bottom: 15px;
+}
+
 .feature-box {
   background-color: #c7db63;
   border-radius: 10px;
