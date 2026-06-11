@@ -21,9 +21,7 @@ searchForm.addEventListener("submit", function (event) {
     return;
   }
 
-  fetch(
-    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`,
-  )
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
       if (!data.drinks) {
@@ -43,7 +41,8 @@ searchForm.addEventListener("submit", function (event) {
                      
                     <div class="card-body">
                       <h3><strong>${drink.strDrink}</strong></h3>
-                        <p>${drink.strInstructions.slice(0, 200)}...</p>
+                        <p class="instructions short">${drink.strInstructions}</p>
+                        <button class="btn btn-sm btn-outline-dark read-more-btn">Read More</button>
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
@@ -63,10 +62,11 @@ searchForm.addEventListener("submit", function (event) {
     });
 });
 
-const popularBtn = document.getElementById("popular-btn");
-const popularDrinksResults = document.getElementById("popular-drinks-results");
+const popularBtn = document.getElementById('popular-btn');
+const popularDrinksResults = document.getElementById('popular-drinks-results');
 
 // Generate popular cocktails //
+
 popularBtn.addEventListener("click", function () {
   popularDrinksResults.innerHTML = "";
   drinkResults.innerHTML = "";
@@ -87,7 +87,8 @@ popularBtn.addEventListener("click", function () {
                      
                     <div class="card-body">
                       <h3><strong>${drink.strDrink}</strong></h3>
-                        <p>${drink.strInstructions.slice(0, 200)}...</p>
+                        <p class="instructions short">${drink.strInstructions}</p>
+                        <button class="btn btn-sm btn-outline-dark read-more-btn">Read More</button>
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
@@ -132,7 +133,8 @@ randomBtn.addEventListener("click", function () {
                      
                     <div class="card-body">
                       <h3><strong>${drink.strDrink}</strong></h3>
-                        <p>${drink.strInstructions.slice(0, 200)}...</p>
+                        <p class="instructions short">${drink.strInstructions}</p>
+                        <button class="btn btn-sm btn-outline-dark read-more-btn">Read More</button>
                         <p><strong>Glass:</strong> ${drink.strGlass}</p>
                           <p><strong>Category:</strong> ${drink.strCategory}</p>
 
@@ -151,4 +153,20 @@ randomBtn.addEventListener("click", function () {
       console.error("Error fetching drink data:", error);
       errorMessage.textContent = "Error fetching drink data.";
     });
+});
+
+document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("read-more-btn")) {
+        const instructions =
+            event.target.previousElementSibling;
+
+        instructions.classList.toggle("expanded");
+        instructions.classList.toggle("short");
+
+        if (instructions.classList.contains("expanded")) {
+            event.target.textContent = "Read Less";
+        } else {
+            event.target.textContent = "Read More";
+        }
+    }
 });
