@@ -21,7 +21,9 @@ searchForm.addEventListener("submit", function (event) {
     return;
   }
 
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`)
+  fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchValue}`,
+  )
     .then((response) => response.json())
     .then((data) => {
       if (!data.drinks) {
@@ -49,6 +51,11 @@ searchForm.addEventListener("submit", function (event) {
                           <p><strong>${drink.strMeasure1 || ""} ${drink.strIngredient1 || ""}</strong></p>
                            <p><strong>${drink.strMeasure2 || ""} ${drink.strIngredient2 || ""}</strong></p>
                              <p><strong>${drink.strMeasure3 || ""} ${drink.strIngredient3 || ""}</strong></p>
+                              <p><strong>${drink.strMeasure4 || ""} ${drink.strIngredient4 || ""}</strong></p>
+                                <p><strong>${drink.strMeasure5 || ""} ${drink.strIngredient5 || ""}</strong></p> 
+                                <p><strong>${drink.strMeasure6 || ""} ${drink.strIngredient6 || ""}</strong></p>  
+                                <p><strong>${drink.strMeasure7 || ""} ${drink.strIngredient7 || ""}</strong></p>
+                                 <p><strong>${drink.strMeasure8 || ""} ${drink.strIngredient8 || ""}</strong></p>
                            </div>
                         </div>
                     </div>
@@ -62,10 +69,10 @@ searchForm.addEventListener("submit", function (event) {
     });
 });
 
-const popularBtn = document.getElementById('popular-btn');
-const popularDrinksResults = document.getElementById('popular-drinks-results');
+const popularBtn = document.getElementById("popular-btn");
+const popularDrinksResults = document.getElementById("popular-drinks-results");
 
-// Generate popular cocktails //
+// Generate Suggested Drinks //
 
 popularBtn.addEventListener("click", function () {
   popularDrinksResults.innerHTML = "";
@@ -95,6 +102,12 @@ popularBtn.addEventListener("click", function () {
                           <p><strong>${drink.strMeasure1 || ""} ${drink.strIngredient1 || ""}</strong></p>
                            <p><strong>${drink.strMeasure2 || ""} ${drink.strIngredient2 || ""}</strong></p>
                              <p><strong>${drink.strMeasure3 || ""} ${drink.strIngredient3 || ""}</strong></p>
+                              <p><strong>${drink.strMeasure4 || ""} ${drink.strIngredient4 || ""}</strong></p>
+                                <p><strong>${drink.strMeasure5 || ""} ${drink.strIngredient5 || ""}</strong></p> 
+                                <p><strong>${drink.strMeasure6 || ""} ${drink.strIngredient6 || ""}</strong></p>  
+                                <p><strong>${drink.strMeasure7 || ""} ${drink.strIngredient7 || ""}</strong></p>
+                                 <p><strong>${drink.strMeasure8 || ""} ${drink.strIngredient8 || ""}</strong></p> 
+
                            </div>
                         </div>
                     </div>
@@ -141,6 +154,11 @@ randomBtn.addEventListener("click", function () {
                           <p><strong>${drink.strMeasure1 || ""} ${drink.strIngredient1 || ""}</strong></p>
                            <p><strong>${drink.strMeasure2 || ""} ${drink.strIngredient2 || ""}</strong></p>
                              <p><strong>${drink.strMeasure3 || ""} ${drink.strIngredient3 || ""}</strong></p>
+                              <p><strong>${drink.strMeasure4 || ""} ${drink.strIngredient4 || ""}</strong></p>
+                                <p><strong>${drink.strMeasure5 || ""} ${drink.strIngredient5 || ""}</strong></p> 
+                                <p><strong>${drink.strMeasure6 || ""} ${drink.strIngredient6 || ""}</strong></p>  
+                                <p><strong>${drink.strMeasure7 || ""} ${drink.strIngredient7 || ""}</strong></p>
+                                 <p><strong>${drink.strMeasure8 || ""} ${drink.strIngredient8 || ""}</strong></p>
                            </div>
                         </div>
                     </div>
@@ -156,17 +174,16 @@ randomBtn.addEventListener("click", function () {
 });
 
 document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("read-more-btn")) {
-        const instructions =
-            event.target.previousElementSibling;
+  if (event.target.classList.contains("read-more-btn")) {
+    const instructions = event.target.previousElementSibling;
 
-        instructions.classList.toggle("expanded");
-        instructions.classList.toggle("short");
+    instructions.classList.toggle("expanded");
+    instructions.classList.toggle("short");
 
-        if (instructions.classList.contains("expanded")) {
-            event.target.textContent = "Read Less";
-        } else {
-            event.target.textContent = "Read More";
-        }
+    if (instructions.classList.contains("expanded")) {
+      event.target.textContent = "Read Less";
+    } else {
+      event.target.textContent = "Read More";
     }
+  }
 });

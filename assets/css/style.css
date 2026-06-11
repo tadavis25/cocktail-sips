@@ -145,8 +145,9 @@ body {
 
 .card-img-top {
   width: 100%;
-  height: 250px;
+  height: 375px;
   object-fit: cover;
+  background-color: #c7db63;
 }
 
 #search-form {
@@ -158,7 +159,7 @@ body {
   border-radius: 10px;
   padding: 30px;
   width: 80%;
-  max-width: 600px;
+  max-width: 400px;
   margin: 40px auto;
   text-align: center;
 }
@@ -168,14 +169,6 @@ body {
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.feature-box {
-  background-color: #c7db63;
-  border-radius: 10px;
-  padding: 25px;
-  width: 400px;
-  text-align: center;
 }
 
 .feature-icon {
@@ -194,7 +187,7 @@ body {
 }
 
 .read-more-btn {
-  margin-top: 10px 0;
+  margin: 15px 0;
 }
 
 .social-links {
