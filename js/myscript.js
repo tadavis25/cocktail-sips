@@ -12,7 +12,7 @@ searchForm.addEventListener("submit", function (event) {
   searchInput.value = "";
   randomDrinkResult.innerHTML = "";
   drinkResults.innerHTML = "";
-  popularDrinksResults.innerHTML = "";
+  suggestedDrinksResults.innerHTML = "";
   errorMessage.textContent = "";
 
   if (!searchValue) {
@@ -69,13 +69,13 @@ searchForm.addEventListener("submit", function (event) {
     });
 });
 
-const popularBtn = document.getElementById("popular-btn");
-const popularDrinksResults = document.getElementById("popular-drinks-results");
+const suggestedBtn = document.getElementById("suggested-btn");
+const suggestedDrinksResults = document.getElementById("suggested-drinks-results");
 
 // Generate Suggested Drinks //
 
-popularBtn.addEventListener("click", function () {
-  popularDrinksResults.innerHTML = "";
+suggestedBtn.addEventListener("click", function () {
+  suggestedDrinksResults.innerHTML = "";
   drinkResults.innerHTML = "";
   randomDrinkResult.innerHTML = "";
   errorMessage.textContent = "";
@@ -84,9 +84,9 @@ popularBtn.addEventListener("click", function () {
   fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=m")
     .then((response) => response.json())
     .then((data) => {
-      popularDrinksResults.innerHTML = "";
+      suggestedDrinksResults.innerHTML = "";
       data.drinks.forEach((drink) => {
-        popularDrinksResults.innerHTML += `
+        suggestedDrinksResults.innerHTML += `
                        <div class="col-12 col-md-6 col-lg-4 mb-4"> 
                      <div class="card h-100">
                   <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}" 
@@ -113,7 +113,7 @@ popularBtn.addEventListener("click", function () {
                     </div>
                 `;
       });
-      popularDrinksResults.scrollIntoView({ behavior: "smooth" });
+      suggestedDrinksResults.scrollIntoView({ behavior: "smooth" });
     })
 
     .catch((error) => {
@@ -129,7 +129,7 @@ const randomDrinkResult = document.getElementById("random-drink-result");
 randomBtn.addEventListener("click", function () {
   randomDrinkResult.innerHTML = "";
   drinkResults.innerHTML = "";
-  popularDrinksResults.innerHTML = "";
+  suggestedDrinksResults.innerHTML = "";
   errorMessage.textContent = "";
   searchInput.value = "";
 
