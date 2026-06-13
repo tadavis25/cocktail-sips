@@ -5,7 +5,8 @@ const searchInput = document.getElementById("search-input");
 const drinkResults = document.getElementById("drink-results");
 const errorMessage = document.getElementById("error-message");
 
-// Search cocktails by name //
+// Search cocktails //
+
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const searchValue = searchInput.value.trim();
@@ -125,7 +126,8 @@ suggestedBtn.addEventListener("click", function () {
 const randomBtn = document.getElementById("random-btn");
 const randomDrinkResult = document.getElementById("random-drink-result");
 
-// Generate random cocktail //
+// Generate Random Drink //
+
 randomBtn.addEventListener("click", function () {
   randomDrinkResult.innerHTML = "";
   drinkResults.innerHTML = "";
@@ -172,6 +174,8 @@ randomBtn.addEventListener("click", function () {
       errorMessage.textContent = "Error fetching drink data.";
     });
 });
+
+// Read More / Read Less Functionality //
 
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("read-more-btn")) {

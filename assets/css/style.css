@@ -12,6 +12,7 @@ h5 {
 .p {
   font-family: "Poppins", sans-serif;
 }
+
 .navbar {
   background-color: #c7db63 !important;
   padding: 10px;
@@ -38,14 +39,6 @@ h5 {
   margin-top: 20px;
 }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  padding: 20px;
-}
-
 .logo {
   width: 80px;
   height: auto;
@@ -60,6 +53,16 @@ h5 {
 #random-drink-result .card {
   width: 100%;
   max-width: 400px;
+}
+
+/* Header Content */
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
 }
 
 .header-content h1,
@@ -84,6 +87,8 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+/* 404 Page */
 
 .not-found {
   min-height: 70vh;
@@ -111,7 +116,7 @@ body {
 .not-found .btn {
   margin-top: 2rem;
 }
-/* Responsive */
+/* Responsive Hero */
 
 @media (max-width: 768px) {
   .hero {
@@ -121,6 +126,7 @@ body {
 }
 
 /* Display cards */
+
 .card {
   height: 100%;
   background-color: #c7db63;
@@ -153,6 +159,8 @@ body {
 #search-form {
   margin-bottom: 2rem;
 }
+
+/* Feature Boxes */
 
 .feature-box {
   background-color: #c7db63;
@@ -189,6 +197,8 @@ body {
 .read-more-btn {
   margin: 15px 0;
 }
+
+/* Social Links */
 
 .social-links {
   display: flex;
